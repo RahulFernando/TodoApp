@@ -6,7 +6,7 @@ import TodoItem from "./TodoItem";
 class TodoList extends Component {
     render() {
         // destructuring
-        const {items} = this.props;
+        const {items, handleDelete, handleEdit} = this.props;
 
         return (
             <ul className="list-group my-5">
@@ -14,10 +14,9 @@ class TodoList extends Component {
                 {/*iterate through items*/}
                 {items.map(item => {
                     return(
-                        <TodoItem key={item.id} title={item.item}/>
+                        <TodoItem key={item.id} title={item.item} handleDelete={() => handleDelete(item.id)} handleEdit={() => handleEdit(item.id)}/>
                     )
                 })}
-                <button type="button" className="btn btn-danger btn-block text-capitalize mt-5">clear all</button>
             </ul>
         );
     }
