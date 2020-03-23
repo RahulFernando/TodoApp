@@ -1,0 +1,23 @@
+.no-padding {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.btn-custom {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #d87f7f;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn-custom:hover {
+    background-color: #d85f5f;
+}

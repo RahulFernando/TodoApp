@@ -1,27 +1,23 @@
 import React, {Component} from 'react';
-import {  BrowserRouter as Router, Route } from 'react-router-dom';
-
-// bootstrap
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 // components
-import Welcome from "./components/Welcome";
-import Landing from "./components/Landing";
+import TodoInput from "./TodoInput";
+import TodoList from "./TodoList";
 
-class App extends Component {
-   // state
-   state = {
-       items: [],
-       id: Date.now(),
-       item: '',
-       edit: false
-   };
+class Landing extends Component {
+    // state
+    state = {
+        items: [],
+        id: Date.now(),
+        item: '',
+        edit: false
+    };
 
-   // handle event
+    // handle event
     handleChange = e => {
-      this.setState({
-          item: e.target.value
-      })
+        this.setState({
+            item: e.target.value
+        })
     };
 
     // submit
@@ -67,14 +63,18 @@ class App extends Component {
         })
     };
 
-  render() {
-      return (
-          <Router>
-              <Route exact path="/" component={Welcome}/>
-              <Route exact path='/todo' component={Landing}/>
-          </Router>
-      );
-  }
+    render() {
+        return (
+            <div className="container">
+                <div className="row">
+                    <div className="col-10 mx-auto col-md-8 mt-4">
+                        <h3 className="text-capitalize text-center">Todo App</h3>
+                        <TodoInput item={this.state.item} handleChange={this.handleChange} handleSubmit={this.handleSubmit} edit={this.state.edit}/>
+                        <TodoList items={this.state.items} handleDelete={this.handleDelete} handleEdit={this.handleEdit}/>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 }
-
-export default App;
+export default Landing;
