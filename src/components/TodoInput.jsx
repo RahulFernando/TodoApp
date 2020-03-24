@@ -14,7 +14,7 @@ class TodoInput extends Component {
                                 <i className="fas fa-list"></i>
                             </div>
                         </div>
-                        <input type="text" className="form-control text-capitalize" placeholder="add an item to list" value={item} onChange={handleChange }/>
+                        <input type="text" className="form-control text-capitalize" placeholder="add an item to list" value={item} onChange={handleChange } required/>
                     </div>
                     <button type="submit" className={edit ? 'btn btn-block btn-primary mt-3' : 'btn btn-block btn-success mt-3'}> {edit ? 'edit item': 'add item'}</button>
                 </form>

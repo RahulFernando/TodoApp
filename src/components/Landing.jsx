@@ -10,7 +10,8 @@ class Landing extends Component {
         items: [],
         id: Date.now(),
         item: '',
-        edit: false
+        edit: false,
+        status: ''
     };
 
     // handle event
@@ -26,7 +27,8 @@ class Landing extends Component {
 
         const newItem = {
             id: this.state.id,
-            item: this.state.item
+            item: this.state.item,
+            status: 'not completed'
         };
 
         console.log(newItem)
@@ -38,7 +40,8 @@ class Landing extends Component {
             items: updatedItems,
             item: '',
             id: Date.now(),
-            edit: false
+            edit: false,
+            status: 'not completed'
         })
 
     };
@@ -63,14 +66,24 @@ class Landing extends Component {
         })
     };
 
+    // complete task
+    handleStatus = (id) => {
+        const selectedItem = this.state.items.find(item => item.id === id); // find item equal to id passed
+        selectedItem.status = 'completed';
+        this.setState({
+            id: id,
+            status: selectedItem.status
+        })
+    };
+
     render() {
         return (
             <div className="container">
                 <div className="row">
                     <div className="col-10 mx-auto col-md-8 mt-4">
                         <h3 className="text-capitalize text-center">Todo App</h3>
-                        <TodoInput item={this.state.item} handleChange={this.handleChange} handleSubmit={this.handleSubmit} edit={this.state.edit}/>
-                        <TodoList items={this.state.items} handleDelete={this.handleDelete} handleEdit={this.handleEdit}/>
+                        <TodoInput item={this.state.item}  handleChange={this.handleChange} handleSubmit={this.handleSubmit} edit={this.state.edit}/>
+                        <TodoList items={this.state.items} status={this.state.status} handleDelete={this.handleDelete} handleEdit={this.handleEdit} handleStatus={this.handleStatus}/>
                     </div>
                 </div>
             </div>
