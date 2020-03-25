@@ -81,9 +81,9 @@ class Landing extends Component {
             <div className="container">
                 <div className="row">
                     <div className="col-10 mx-auto col-md-8 mt-4">
-                        <h3 className="text-capitalize text-center">Todo App</h3>
+                        <h3 className="text-capitalize text-center"><i className="fas fa-clipboard-list fa-7x"></i></h3>
                         <TodoInput item={this.state.item}  handleChange={this.handleChange} handleSubmit={this.handleSubmit} edit={this.state.edit}/>
-                        <TodoList items={this.state.items} status={this.state.status} handleDelete={this.handleDelete} handleEdit={this.handleEdit} handleStatus={this.handleStatus}/>
+                        <TodoList items={this.state.items} handleDelete={this.handleDelete} handleEdit={this.handleEdit} handleStatus={this.handleStatus}/>
                     </div>
                 </div>
             </div>
