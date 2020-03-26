@@ -72,8 +72,22 @@ class Landing extends Component {
         selectedItem.status = 'completed';
         this.setState({
             id: id,
-            status: selectedItem.status
-        })
+            status: selectedItem.status,
+            items: this.handleAfterStatusChange(this.state.items)
+        });
+
+
+    };
+
+    handleAfterStatusChange = (list) => {
+        const sort = list.filter(item => item.status === 'completed')
+        for (let i = 0; i < list.length; i++) {
+            if (list[i].status !== 'completed') {
+                sort.push(list[i])
+            }
+        }
+
+        return sort;
     };
 
     render() {

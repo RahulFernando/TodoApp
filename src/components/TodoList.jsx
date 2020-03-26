@@ -6,7 +6,7 @@ import TodoItem from "./TodoItem";
 class TodoList extends Component {
     render() {
         // destructuring
-        const {items, handleDelete, handleEdit, handleStatus} = this.props;
+        const { items, handleDelete, handleEdit, handleStatus} = this.props;
 
         return (
             <ul className="list-group my-5">
