@@ -9,7 +9,7 @@ class TodoItem extends Component {
                 <h6>{title}</h6>
                 <div className="todo-icon">
                     <span className={status === "not completed" ? 'mx-2 text-secondary' : 'mx-2 text-success'}>{status}</span><span className={status === 'not completed' ? 'mx-2 text-secondary' : 'mx-2 text-success'} onClick={handleStatus}><i className="fas fa-check"></i></span>
-                    <span className={status === 'not completed' ? 'mx-2 text-primary' : 'mx-2 text-primary invisible'}  onClick={ status === "completed" ? '' : handleEdit}><i className="fas fa-edit"></i></span>
+                    <span className={status === 'not completed' ? 'mx-2 text-primary' : 'mx-2 text-primary invisible'}  onClick={handleEdit}><i className="fas fa-edit"></i></span>
                     <span className="mx-2 text-danger" onClick={handleDelete}><i className="fas fa-trash"></i></span>
                 </div>
             </li>
