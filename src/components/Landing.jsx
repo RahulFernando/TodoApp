@@ -23,7 +23,7 @@ class Landing extends Component {
 
     // submit
     handleSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
 
         const newItem = {
             id: this.state.id,
@@ -71,7 +71,7 @@ class Landing extends Component {
         const selectedItem = this.state.items.find(item => item.id === id); // find item equal to id passed
         selectedItem.status = 'completed';
         this.setState({
-            id: id,
+            // id: id,
             status: selectedItem.status,
             items: this.handleAfterStatusChange(this.state.items)
         });
@@ -80,7 +80,7 @@ class Landing extends Component {
     };
 
     handleAfterStatusChange = (list) => {
-        const sort = list.filter(item => item.status === 'completed')
+        const sort = list.filter(item => item.status === 'completed');
         for (let i = 0; i < list.length; i++) {
             if (list[i].status !== 'completed') {
                 sort.push(list[i])
